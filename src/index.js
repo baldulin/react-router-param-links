@@ -1,22 +1,36 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import {Link, NavLink, Route} from 'react-router-dom';
 
-import styles from './styles.css'
+export function reverse(to, params){
+    let paramRegex = /:([a-zA-Z]+)/;
+    let result = to;
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+    while(true){
+        const foundParams = paramRegex.exec(result);
 
-  render() {
-    const {
-      text
-    } = this.props
+        if(foundParams === null){
+            return result;
+        }
 
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
+        const key = foundParams[1];
+        if(params[key] === undefined){
+            if(!Array.isArray(params)){
+                throw new Error("Url parameter \"" + key + "\" is missing in params");
+            }
+
+            result = result.replace(":" + key, params.shift());
+        }
+        else{
+            result = result.replace(":" + key, params[key]);
+        }
+    }
 }
+
+export Link => ({to, params=null, ...props}) => (
+    <Link
+        to={reverse(props.to, params ? params : props)}
+        {...props}
+        >
+            {props.children}
+    </Link>
+);
