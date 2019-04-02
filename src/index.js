@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link, NavLink, Route} from 'react-router-dom';
+import {Link as OldLink, NavLink as OldNavLink} from 'react-router-dom';
 
 export function reverse(to, params){
     let paramRegex = /:([a-zA-Z]+)/;
@@ -26,20 +26,20 @@ export function reverse(to, params){
     }
 }
 
-export Link = ({to, params=null, ...props}) => (
-    <Link
+export const Link = ({to, params=null, ...props}) => (
+    <OldLink
         to={reverse(props.to, params ? params : props)}
         {...props}
         >
             {props.children}
-    </Link>
+    </OldLink>
 );
 
-export NavLink = ({to, params=null, ...props}) => (
-    <NavLink
+export const NavLink = ({to, params=null, ...props}) => (
+    <OldNavLink
         to={reverse(props.to, params ? params : props)}
         {...props}
         >
             {props.children}
-    </NavLink>
+    </OldNavLink>
 );
