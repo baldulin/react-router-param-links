@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Link as OldLink, NavLink as OldNavLink} from 'react-router-dom';
 
 export function reverse(to, params){
