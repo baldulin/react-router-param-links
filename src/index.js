@@ -26,11 +26,20 @@ export function reverse(to, params){
     }
 }
 
-export Link => ({to, params=null, ...props}) => (
+export Link = ({to, params=null, ...props}) => (
     <Link
         to={reverse(props.to, params ? params : props)}
         {...props}
         >
             {props.children}
     </Link>
+);
+
+export NavLink = ({to, params=null, ...props}) => (
+    <NavLink
+        to={reverse(props.to, params ? params : props)}
+        {...props}
+        >
+            {props.children}
+    </NavLink>
 );
