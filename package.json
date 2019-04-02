@@ -4,6 +4,7 @@
   "description": "Parameterized links for react-router links",
   "author": "baldulin",
   "license": "MIT",
+  "private": true,
   "repository": "baldulin/react-router-param-links",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
