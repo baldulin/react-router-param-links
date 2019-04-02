@@ -1,6 +1,6 @@
 {
   "name": "react-router-param-links",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Parameterized links for react-router links",
   "author": "baldulin",
   "license": "MIT",
@@ -60,6 +60,7 @@
     "dist"
   ],
   "dependencies": {
+    "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0"
   }
 }
