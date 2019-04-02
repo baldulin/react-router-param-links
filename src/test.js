@@ -22,10 +22,10 @@ describe('NavLink', () => {
   })
 });
 
-it('Link renders without crash', () => {
+it('NavLink renders without crash', () => {
     const div = document.createElement('div');
     ReactDOM.render(<BrowserRouter>
-        <Link to="/test/:param/" param="funf">test</Link>
+        <NavLink to="/test/:param/" param="funf">test</NavLink>
     </BrowserRouter>, div);
 });
 
